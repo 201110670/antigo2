@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Mobile: Theme Download</title>
+	<link rel="stylesheet" href="themes/mobiletheme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="js/jquery.mobile.structure-1.4.3.min.css" />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery_validate.js"></script>
+	<style>
+div.ex {
+    width: 93%;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: auto;
+}
+#forImage{
+width: 93%;
+    padding: 10px;
+	border: 5px solid gray;
+    margin: auto;
+	height:100px;
+}
+#togglethis{
+width: 93%;
+    padding: 10px;
+	border: 5px solid gray;
+    margin: auto;
+	height:100%;
+}
+
+#back{
+width: 90%;
+    padding: 10px;
+	border: 5px solid #08387c;
+	background-color:#08387c;
+    margin: auto;
+	height:50px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size: 40px;
+}
+
+#logout{
+background-image: url('css/logout.png');
+background-repeat: no-repeat;
+background-size: 420px 70px;
+	width: 90%;
+    padding: 10px;
+    margin: auto;
+	height:50px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size: 40px;
+	   position: relative;
+}
+#help{
+background-image: url('css/help.png');
+background-repeat: no-repeat;
+background-size: 420px 70px;
+	width: 90%;
+    padding: 10px;
+    margin: auto;
+	height:50px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size: 40px;
+	   position: relative;
+}
+#leaderBoard{
+background-image: url('css/highscore.png');
+background-repeat: no-repeat;
+background-size: 420px 100%;
+width: 90%;
+padding: 10px;
+margin: auto;
+height:70px;
+margin-left:auto;
+margin-right:auto;
+font-size: 40px;
+position: relative;
+}
+#btnStartAnimals{
+width: 90%;
+    padding: 10px;
+	border: 5px solid #bd0613;
+	background-color:#bd0613;
+    margin: auto;
+	height:100%;
+	margin-left:auto;
+	margin-right:auto;
+}
+#homeBg{
+	position:fixed;
+	height:100%;
+	width:100%;
+	background-image:url(css/home.jpg);
+	background-position: top center;
+	background-size: cover;
+}
+#result,#gameBg,#bgScores{
+	position:fixed;
+	height:100%;
+	width:100%;
+	background-image:url(css/plain.jpg);
+	background-position: top center;
+	background-size: cover;
+}
+#helps{
+	position:fixed;
+	height:100%;
+	width:100%;
+	background-image:url(css/help.jpg);
+	background-position: top center;
+	background-size: cover;
+}
+
+#relative,#relative2,#relative3 {
+    position: relative;
+    top: 10px;
+	color:white;
+}
+
+
+	</style>
+	<style type="text/css">
+body {
+    background: url(css/s.jpg);
+    background-repeat:repeat-y;
+    background-position:center center;
+    background-attachment:scroll;
+    background-size:100% 100%;
+}
+.ui-page {
+    background: transparent;
+}
+.ui-content{
+    background: transparent;
+}
+*{
+color:black;
+}
+</style>
+</head>
+<body>
+	<div data-role="page" data-theme="a">
+<img id="homeBg" />
+		
+		<div data-role="content" data-theme="a" align="center" style="margin-top:400px;">
+		
+		<a href="#questionAnimals" width="100%" data-role="button"><div id="btnAnimals"  style="font-size:30px;">START</div></a><br />
+	<a href="#" data-role="button" data-mini="true" id="backhome"><label style="font-size:30px;">Back to home</label></a>
+	</div>
+</div>
+
+
+
+	
+
+<div data-role="page" data-theme="a" id="questionAnimals">
+
+		<div data-role="content" data-theme="a">
+		<div id="relative" style="color:white;">
+		<center>
+		<h1>TIME</h1><br />
+		<h2 id="showTimer"></h2><br />
+		<h1>SCORE</h1><h2 id="asd" style="margin-left: auto; margin-right: auto;"></h2><br />
+		<span id="count"></span><br />
+		<h1 id="prog2"></h1>
+		<h1 id="questions"></h1><br />
+		</center>
+<a data-role="button" id="check1" class="q1" style="display:none"><span id="c1" style="size:3px"></span></a>
+<a data-role="button" id="check2" class="q1" style="display:none"><span id="c2"style="size:3px"></span></a>
+<a data-role="button" id="check3" class="q2" style="display:none"><span id="c4"style="size:3px"></span></a>
+<a data-role="button" id="check4" class="q2" style="display:none"><span id="c3"style="size:3px"></span></a>
+<a data-role="button" id="check5" class="q3" style="display:none"><span id="c5"style="size:3px"></span></a>
+<a data-role="button" id="check6" class="q3" style="display:none"><span id="c6"style="size:3px"></span></a>
+<a data-role="button" id="check7" class="q4" style="display:none"><span id="c7"style="size:3px"></span></a>
+<a data-role="button" id="check8" class="q4" style="display:none"><span id="c8"style="size:3px"></span></a>
+<a data-role="button" id="check9" class="q5" style="display:none"><span id="c9"style="size:3px"></span></a>
+<a data-role="button" id="check10" class="q5" style="display:none"><span id="c10"style="size:3px"></span></a>
+<a data-role="button" id="check11" class="q6" style="display:none"><span id="c11"style="size:3px"></span></a>
+<a data-role="button" id="check12" class="q6" style="display:none"><span id="c12"style="size:3px"></span></a>
+<a data-role="button" id="check13" class="q7" style="display:none"><span id="c13"style="size:3px"></span></a>
+<a data-role="button" id="check14" class="q7" style="display:none"><span id="c14"style="size:3px"></span></a>
+<a data-role="button" id="check15" class="q8" style="display:none"><span id="c15"style="size:3px"></span></a>
+<a data-role="button" id="check16" class="q8" style="display:none"><span id="c16"style="size:3px"></span></a>
+<a data-role="button" id="check17" class="q9" style="display:none"><span id="c17"style="size:3px"></span></a>
+<a data-role="button" id="check18" class="q9" style="display:none"><span id="c18"style="size:3px"></span></a>
+<a data-role="button" id="check19" class="q10" style="display:none"><span id="c19"style="size:3px"></span></a>
+<a data-role="button" id="check20" class="q10" style="display:none"><span id="c20"style="size:3px"></span></a>
+<a data-role="button" id="check21" class="q11" style="display:none"><span id="c21"style="size:3px"></span></a>
+<a data-role="button" id="check22" class="q11" style="display:none"><span id="c22"style="size:3px"></span></a>
+<a data-role="button" id="check23" class="q12" style="display:none"><span id="c23"style="size:3px"></span></a>
+<a data-role="button" id="check24" class="q12" style="display:none"><span id="c24"style="size:3px"></span></a>
+<a data-role="button" id="check25" class="q13" style="display:none"><span id="c25"style="size:3px"></span></a>
+<a data-role="button" id="check26" class="q13" style="display:none"><span id="c26"style="size:3px"></span></a>
+<a data-role="button" id="check27" class="q14" style="display:none"><span id="c27"style="size:3px"></span></a>
+<a data-role="button" id="check28" class="q14" style="display:none"><span id="c28"style="size:3px"></span></a>
+<a data-role="button" id="check29" class="q15" style="display:none"><span id="c29"style="size:3px"></span></a>
+<a data-role="button" id="check30" class="q15" style="display:none"><span id="c30"style="size:3px"></span></a>
+<a data-role="button" id="check31" class="q16" style="display:none"><span id="c31"style="size:3px"></span></a>
+<a data-role="button" id="check32" class="q16" style="display:none"><span id="c32"style="size:3px"></span></a>
+<a data-role="button" id="check33" class="q17" style="display:none"><span id="c33"style="size:3px"></span></a>
+<a data-role="button" id="check34" class="q17" style="display:none"><span id="c34"style="size:3px"></span></a>
+<a data-role="button" id="check35" class="q18" style="display:none"><span id="c35"style="size:3px"></span></a>
+<a data-role="button" id="check36" class="q18" style="display:none"><span id="c36"style="size:3px"></span></a>
+<a data-role="button" id="check37" class="q19" style="display:none"><span id="c37"style="size:3px"></span></a>
+<a data-role="button" id="check38" class="q19" style="display:none"><span id="c38"style="size:3px"></span></a>
+<a data-role="button" id="check39" class="q20" style="display:none"><span id="c39"style="size:3px"></span></a>
+<a data-role="button" id="check40" class="q20" style="display:none"><span id="c40"style="size:3px"></span></a>
+<a data-role="button" id="check41" class="q21" style="display:none"><span id="c41"style="size:3px"></span></a>
+<a data-role="button" id="check42" class="q21" style="display:none"><span id="c42"style="size:3px"></span></a>
+<a data-role="button" id="check43" class="q22" style="display:none"><span id="c43"style="size:3px"></span></a>
+<a data-role="button" id="check44" class="q22" style="display:none"><span id="c44"style="size:3px"></span></a>
+<a data-role="button" id="check45" class="q23" style="display:none"><span id="c45"style="size:3px"></span></a>
+<a data-role="button" id="check46" class="q23" style="display:none"><span id="c46"style="size:3px"></span></a>
+<a data-role="button" id="check47" class="q24" style="display:none"><span id="c47"style="size:3px"></span></a>
+<a data-role="button" id="check48" class="q24" style="display:none"><span id="c48"style="size:3px"></span></a>
+<a data-role="button" id="check49" class="q25" style="display:none"><span id="c49"style="size:3px"></span></a>
+<a data-role="button" id="check50" class="q25" style="display:none"><span id="c50"style="size:3px"></span></a>
+<a data-role="button" id="check51" class="q26" style="display:none"><span id="c51"style="size:3px"></span></a>
+<a data-role="button" id="check52" class="q26" style="display:none"><span id="c52"style="size:3px"></span></a>
+<a data-role="button" id="check53" class="q27" style="display:none"><span id="c53"style="size:3px"></span></a>
+<a data-role="button" id="check54" class="q27" style="display:none"><span id="c54"style="size:3px"></span></a>
+<a data-role="button" id="check55" class="q28" style="display:none"><span id="c55"style="size:3px"></span></a>
+<a data-role="button" id="check56" class="q28" style="display:none"><span id="c56"style="size:3px"></span></a>
+<a data-role="button" id="check57" class="q29" style="display:none"><span id="c57"style="size:3px"></span></a>
+<a data-role="button" id="check58" class="q29" style="display:none"><span id="c58"style="size:3px"></span></a>
+<a data-role="button" id="check59" class="q30" style="display:none"><span id="c59"style="size:3px"></span></a>
+<a data-role="button" id="check60" class="q30" style="display:none"><span id="c60"style="size:3px"></span></a>
+<a data-role="button" id="check61" class="q31" style="display:none"><span id="c61"style="size:3px"></span></a>
+<a data-role="button" id="check62" class="q31" style="display:none"><span id="c62"style="size:3px"></span></a>
+<a data-role="button" id="check63" class="q32" style="display:none"><span id="c63"style="size:3px"></span></a>
+<a data-role="button" id="check64" class="q32" style="display:none"><span id="c64"style="size:3px"></span></a>
+<a data-role="button" id="check65" class="q33" style="display:none"><span id="c65"style="size:3px"></span></a>
+<a data-role="button" id="check66" class="q33" style="display:none"><span id="c66"style="size:3px"></span></a>
+<a data-role="button" id="check67" class="q34" style="display:none"><span id="c67"style="size:3px"></span></a>
+<a data-role="button" id="check68" class="q34" style="display:none"><span id="c68"style="size:3px"></span></a>
+<a data-role="button" id="check69" class="q35" style="display:none"><span id="c69"style="size:3px"></span></a>
+<a data-role="button" id="check70" class="q35" style="display:none"><span id="c70"style="size:3px"></span></a>
+<a data-role="button" id="check71" class="q36" style="display:none"><span id="c71"style="size:3px"></span></a>
+<a data-role="button" id="check72" class="q36" style="display:none"><span id="c72"style="size:3px"></span></a>
+<a data-role="button" id="check73" class="q37" style="display:none"><span id="c73"style="size:3px"></span></a>
+<a data-role="button" id="check74" class="q37" style="display:none"><span id="c74"style="size:3px"></span></a>
+<a data-role="button" id="check75" class="q38" style="display:none"><span id="c75"style="size:3px"></span></a>
+<a data-role="button" id="check76" class="q38" style="display:none"><span id="c76"style="size:3px"></span></a>
+<a data-role="button" id="check77" class="q39" style="display:none"><span id="c77"style="size:3px"></span></a>
+<a data-role="button" id="check78" class="q39" style="display:none"><span id="c78"style="size:3px"></span></a>
+<a data-role="button" id="check79" class="q40" style="display:none"><span id="c79"style="size:3px"></span></a>
+<a data-role="button" id="check80" class="q40" style="display:none"><span id="c80"style="size:3px"></span></a>
+<a data-role="button" id="check81" class="q41" style="display:none"><span id="c81"style="size:3px"></span></a>
+<a data-role="button" id="check82" class="q41" style="display:none"><span id="c82"style="size:3px"></span></a>
+<a data-role="button" id="check83" class="q42" style="display:none"><span id="c83"style="size:3px"></span></a>
+<a data-role="button" id="check84" class="q42" style="display:none"><span id="c84"style="size:3px"></span></a>
+<a data-role="button" id="check85" class="q43" style="display:none"><span id="c85"style="size:3px"></span></a>
+<a data-role="button" id="check86" class="q43" style="display:none"><span id="c86"style="size:3px"></span></a>
+<a data-role="button" id="check87" class="q44" style="display:none"><span id="c87"style="size:3px"></span></a>
+<a data-role="button" id="check88" class="q44" style="display:none"><span id="c88"style="size:3px"></span></a>
+<a data-role="button" id="check89" class="q45" style="display:none"><span id="c89"style="size:3px"></span></a>
+<a data-role="button" id="check90" class="q45" style="display:none"><span id="c90"style="size:3px"></span></a>
+<a data-role="button" id="check91" class="q46" style="display:none"><span id="c91"style="size:3px"></span></a>
+<a data-role="button" id="check92" class="q46" style="display:none"><span id="c92"style="size:3px"></span></a>
+<a data-role="button" id="check93" class="q47" style="display:none"><span id="c93"style="size:3px"></span></a>
+<a data-role="button" id="check94" class="q47" style="display:none"><span id="c94"style="size:3px"></span></a>
+<a data-role="button" id="check95" class="q48" style="display:none"><span id="c95"style="size:3px"></span></a>
+<a data-role="button" id="check96" class="q48" style="display:none"><span id="c96"style="size:3px"></span></a>
+<a data-role="button" id="check97" class="q49" style="display:none"><span id="c97"style="size:3px"></span></a>
+<a data-role="button" id="check98" class="q49" style="display:none"><span id="c98"style="size:3px"></span></a>
+<a data-role="button" id="check99" class="q50" style="display:none"><span id="c99"style="size:3px"></span></a>
+<a data-role="button" id="check100" class="q50" style="display:none"><span id="c100"style="size:3px"></span></a>
+<button id="splice" style="display:none;" onClick="splice()">next</button>
+</div>
+</div>
+<div data-role="footer" data-position="fixed">		
+<div data-role="navbar">
+<ul>
+<li><a id="quit" ><label style="font-size:30px;">QUIT GAME</label></a></li>	
+</ul>
+</div>
+</div>
+</div>
+
+<!-- save online dialog-->
+
+<div data-role="page" data-theme="a" id="saveDialog">
+	
+		<div data-role="content">
+		<div id="relative2" style="color:white;">
+		<h1 id="tryAgain"></h1>
+		<form id="savedata" action="javascript:saveOnline();">
+		<h1 style="font-size:30px;">Previous Score : </h1><input type="text" id="lastscore" disabled style="font-size:30px;"/>
+		<h1 style="font-size:30px;">Your Score : </h1><input type="text" id="score" name="score" style="display:none;"/>
+		<h1 id="score2" style="font-size:30px;"></h1>
+		<input type="text" id="username" name="username" style="display:none;">
+		</form>
+		<a data-role="button"  id="playAgain" data-rel="dialog"><label style="font-size:30px;">Play Again</label></a><br /><br />
+		<a href="#" data-role="button" data-mini="true" id="saveScore"><label style="font-size:30px;">Back to home</label></a>
+		</div>
+		</div>
+</div>
+
+<div data-role="page" data-theme="a" id="help1">
+	
+		<div data-role="content" data-theme="a">
+		</div>
+	<div data-role="footer" data-position="fixed">		
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#home" id="back">Back home</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div>
+</div> 
+
+<script>
+	$("#playAgain").click(function(){
+		location.href="index.html";
+		var score=window.localStorage.getItem("score");
+		var changeScore=window.localStorage.setItem("lastscore",score);
+	});
+	$("#homes").click(function(){
+		location.href="index.html";
+	});
+	$("#saveScore").click(function(){
+		location.href="#home";
+		location.reload();
+		var score=window.localStorage.getItem("score");
+		window.localStorage.setItem("lastscore",score);
+	});
+$("#backhome").click(function(){
+		location.href="index.html";
+	});
+	
+
+	
+$("#menu").click(function(){
+$("#logout").slideToggle(100).click(function(){
+localStorage.removeItem("datauser");
+location.href="index.html";
+});
+});
+
+$("#back").click(function(){
+location.href="#home";
+});
+
+$("#quit").click(function(){
+location.href="index.html";
+});
+
+$("#btnAnimals").click(function(){
+splice();
+});
+
+//questions
+var fruits = ["q1", "q2","q3","q4","q5","q6","q7","q8","q9","q10"];
+var score=0;
+function splice(){
+document.getElementById("asd").innerHTML=score;
+var rand=Math.floor((Math.random() * 4));
+setTimeout(function(){
+var a=fruits.splice((Math.random() * fruits.length),1);
+if(a=="q1"){
+$(".q1").show();
+document.getElementById("questions").innerHTML="O, ilaw, sa gabing malamig, Wangis mo'y bituin sa langit. O, tanglaw, sa gabing tahimik, Larawan mo, Neneng, nagbigay pasakit. Ay! Gising at magbangon sa pagkagupiling Sa pagkakatulog na lubhang mahimbing. Buksan ang bintana at ako'y dungawin Nang mapagtanto mo ang tunay kong pagdaing.";
+$("#c1").text("a.	O ILAW");
+$("#c2").text("b.	LIWANAG");
+$("#check1").click(function(){
+clearInterval(time);
+score=score+1;
+splice();
+$(".q1").hide();
+});
+$("#check2").click(function(){
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER!";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+$(".q1").hide();
+});
+var timer=10;
+var time=setInterval(function () {
+timer=timer-1;
+$("#showTimer").html(timer);
+if(timer==0){
+alert("times up!");
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER!";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+}
+}, 1000);
+
+}else if(a=="q2"){
+$(".q2").show();
+document.getElementById("questions").innerHTML="Kahit na gabing madilim sa ___________ Taginting nitong kudyapi ay isang himatong Maligaya ang panahon sa lahat ng naroroon Bawa't puso'y tumutugon sa nilalayon. Puno ng kawayan ay naglangitngitan Lalo na kung hipan ng hanging amihan Ang katahimikan nitong kaparangan Pinukaw na tunay nitong kasayahan. Kung ang hanap mo ay ligaya sa buhay Sa libis ng nayon doon manirahan Taga-bukid man may gintong kalooban, Kayamanan at dangal ng kabukiran.";
+$("#c4").text("A.	SA LIBIS NG NAYON");
+$("#c3").text("B.	NGAYON AT KAILANMAN");
+$("#check3").click(function(){
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER!";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+$(".q2").hide();
+});
+$("#check4").click(function(){
+clearInterval(time);
+score=score+1;
+splice();
+$(".q2").hide();
+});
+var timer=10;
+var time=setInterval(function () {
+timer=timer-1;
+$("#showTimer").html(timer);
+if(timer==0){
+alert("times up!");
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER!";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+}
+}, 1000);
+
+}else if(a=="q3"){
+$(".q3").show();
+document.getElementById("questions").innerHTML="Ang dalagang Pilipina Parang tala sa umaga Kung tanawin ay nakaliligaya May ningning na tangi at dakilang ganda Bulaklak na tanging marilag Ang bango ay humahalimuyak Sa mundo'y dakilang panghiyas Pang-aliw sa pusong may hirap";
+$("#c5").text("A. DALAGANG PILIPINA");
+$("#c6").text("B. PILIPINAS AKO");
+$("#check5").click(function(){
+clearInterval(time);
+score=score+1;
+splice();
+$(".q3").hide();
+});
+$("#check6").click(function(){
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER!";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+$(".q3").hide();
+});
+
+var timer=10;
+var time=setInterval(function () {
+timer=timer-1;
+$("#showTimer").html(timer);
+if(timer==0){
+alert("times up!");
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER!";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+}
+}, 1000);
+}else if(a=="q4"){
+$(".q4").show();
+document.getElementById("questions").innerHTML="Anong laking hirap kung pagka-iisipin Ang gawang umibig sa babaeng mahinhin Lumuluhod ka na'y  di ka pa mandin pansin Sa hirap ika'y kanyang susubikin. Ligaya ng buhay babaeng sakdal inam Ang halaga niya'y di matutumbasan Kahinhinan niya'y tanging kayamanan.";
+$("#c7").text("A.	LELAY");
+$("#c8").text("B.	LULAY");
+$("#check7").click(function(){
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER!";
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+$(".q4").hide();
+});
+$("#check8").click(function(){
+clearInterval(time);
+score=score+1;
+splice();
+$(".q4").hide();
+});
+
+var timer=10;
+var time=setInterval(function () {
+timer=timer-1;
+$("#showTimer").html(timer);
+if(timer==0){
+alert("times up!");
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER!";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+}
+}, 1000);
+}else if(a=="q5"){
+$(".q5").show();
+document.getElementById("questions").innerHTML="Sitsiritsit, alibangbang Salaginto at salagubang Ang babae sa lansangan Kung gumiri'y parang tandang Santo Niño sa Pandakan Putoseko sa tindahan Kung ayaw mong magpautang Uubusin ka ng langgam";
+$("#c9").text("A.	Sitsiritsit, Alibangbang");
+$("#c10").text("B.	Sensereto");
+$("#check9").click(function(){
+clearInterval(time);
+score=score+1;
+splice();
+$(".q5").hide();
+});
+$("#check10").click(function(){
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER!";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+$(".q5").hide();
+});
+
+var timer=10;
+var time=setInterval(function () {
+timer=timer-1;
+$("#showTimer").html(timer);
+if(timer==0){
+alert("times up!");
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER!";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+}
+}, 1000);
+}else if(a=="q6"){
+$(".q6").show();
+document.getElementById("questions").innerHTML="Magtanim ay di biro Maghapong nakayuko Di naman makatayo Di naman makaupo Bisig ko'y namamanhid Baywang ko'y angangawit.Binti ko'y namimintig Sa pagkababad sa tubig.Kay-pagkasawing-palad Ng inianak sa hirap, Ang bisig kung di iunat,Di kumita ng pilak.";
+$("#c11").text("A. Magtanim tayo");
+$("#c12").text("B. Magtanim ay Di Biro");
+$("#check11").click(function(){
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+
+$(".q6").hide();
+});
+$("#check12").click(function(){
+clearInterval(time);
+score=score+1;
+
+splice();
+$(".q6").hide();
+});
+
+var timer=10;
+var time=setInterval(function () {
+timer=timer-1;
+$("#showTimer").html(timer);
+if(timer==0){
+alert("times up!");
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+}
+}, 1000);}else if(a=="q7"){
+$(".q7").show();
+document.getElementById("questions").innerHTML="Leron, Leron, sinta Buko ng papaya Dala dala'y buslo Sisidlan ng sinta	Pagdating sa dulo'y Nabali ang sanga, Kapos kapalaran Humanap ng iba.";
+
+$("#c13").text("A. Leron, Leron Sinta");
+$("#c14").text("B. Sinta mo");
+$("#check13").click(function(){
+score=score+1;
+clearInterval(time);
+splice();
+
+$(".q7").hide();
+});
+$("#check14").click(function(){
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+
+$(".q7").hide();
+});
+
+var timer=10;
+var time=setInterval(function () {
+timer=timer-1;
+$("#showTimer").html(timer);
+if(timer==0){
+alert("times up!");
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+}
+}, 1000);
+}else if(a=="q8"){
+$(".q8").show();
+document.getElementById("questions").innerHTML="Bahay kubo, kahit munti Ang halaman doon ay sari-sari. Singkamas at talong, sigarilyas at mani Sitaw, bataw, patani. Kundol, patola, upo't kalabasa At saka mayroon pang labanos, mustasa, sibuyas, kamatis, bawang at luya sa paligid-ligid ay puro linga. ";
+
+$("#c15").text("A. Gulayan");
+$("#c16").text("B. Bahay Kubo");
+$("#check15").click(function(){
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+
+$(".q8").hide();
+});
+$("#check16").click(function(){
+clearInterval(time);
+score=score+1;
+
+splice();
+$(".q8").hide();
+});
+var timer=10;
+var time=setInterval(function () {
+timer=timer-1;
+$("#showTimer").html(timer);
+if(timer==0){
+alert("times up!");
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+}
+}, 1000);
+}else if(a=="q9"){
+$(".q9").show();
+document.getElementById("questions").innerHTML="May pumukol sa pipit sa sanga ng isang kahoy At nahagip ng bato ang pakpak ng munting ibon Dahil sa sakit, di na nakaya pang lumipad At ang nangyari ay nahulog, ngunit parang taong bumigkas, Mamang kay lupit, ang puso mo'y di na nahabag, Pag pumanaw ang buhay ko, may isang pipit na iiyak.";
+
+$("#c17").text("A. Ang ibon");
+$("#c18").text("B. Ang Pipit");
+$("#check17").click(function(){
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+
+$(".q9").hide();
+});
+$("#check18").click(function(){
+clearInterval(time);
+
+score=score+1;
+splice();
+$(".q9").hide();
+});
+
+var timer=10;
+var time=setInterval(function () {
+timer=timer-1;
+$("#showTimer").html(timer);
+if(timer==0){
+alert("times up!");
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+}
+}, 1000);
+}else if(a=="q10"){
+$(".q10").show();
+document.getElementById("questions").innerHTML="Tayo'y magsayaw irog ko ng tinikling Tulad ng sayaw ng lolo't lola natin Ang mga hakbang na kung di pagbubutihin Dalawang kawayan tayo'y iipitin At sa tinikling na tigib ng panganib Ang hindi maingat iya'y maiipit Pusong maharot ganyan din sa pag-ibig Ang nakakamit paghakbang ay ligalig Kung magsasayaw ka giliw ng tinikling Kumpas ng kawayan kahit mapatulin Ang mga binti mo'y kay hirap hulihin 'Sing ilap din ng puso mo sa paggiliw";
+
+$("#c19").text("A. Tinikling");
+$("#c20").text("B. Tinik sa bukid");
+$("#check19").click(function(){
+clearInterval(time);
+
+score=score+1;
+splice();
+$(".q10").hide();
+});
+$("#check20").click(function(){
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+
+$(".q10").hide();
+});
+var timer=10;
+var time=setInterval(function () {
+timer=timer-1;
+$("#showTimer").html(timer);
+if(timer==0){
+alert("times up!");
+window.localStorage.setItem("score",score);
+document.getElementById("tryAgain").innerHTML="GAME OVER";
+document.getElementById("score2").innerHTML= score;
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+clearInterval(time);
+}
+}, 1000);
+}else if(a=="" || fruits.length==0){
+fruits.splice(0,1);
+window.localStorage.setItem("score",score);
+var getScore=window.localStorage.getItem("score");
+document.getElementById("score").value=getScore;
+var getlastscore=window.localStorage.getItem("lastscore");
+document.getElementById("lastscore").value=getlastscore;
+var getUsername=window.localStorage.getItem("datauser");
+document.getElementById("username").value=getUsername;
+location.href="#saveDialog";
+}
+},1000);
+}
+
+
+$("#logout").click(function(){
+		window.localStorage.removeItem("datauser");
+		location.href="index.html";
+});
+</script>
+</body>
+</html>
